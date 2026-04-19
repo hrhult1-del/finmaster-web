@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support — FinMaster</title>
+  <meta name="description" content="FinMaster Support — FAQs, contact, and help for the AI-powered investing education app." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0f1117; --surface: #1a1d27; --surface2: #22263a;
+      --border: #2a2d3a; --primary: #10b981; --text: #e8eaf0;
+      --muted: #8b90a0; --accent: #3b82f6; --warning: #f59e0b;
+      --error: #ef4444;
+    }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 16px; }
+    header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 20px 24px; display: flex; align-items: center; gap: 12px; position: sticky; top: 0; z-index: 10; }
+    .logo { width: 36px; height: 36px; background: linear-gradient(135deg, var(--primary), #059669); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 900; color: white; }
+    .brand { font-size: 18px; font-weight: 700; color: var(--text); }
+    .brand span { color: var(--primary); }
+    nav { margin-left: auto; display: flex; gap: 20px; }
+    nav a { font-size: 14px; color: var(--muted); text-decoration: none; }
+    nav a:hover { color: var(--text); }
+    .hero { background: linear-gradient(135deg, #0f1117 0%, #1a2a1a 100%); padding: 60px 24px 48px; text-align: center; border-bottom: 1px solid var(--border); }
+    .hero h1 { font-size: 40px; font-weight: 900; color: var(--text); margin-bottom: 12px; }
+    .hero p { font-size: 18px; color: var(--muted); max-width: 500px; margin: 0 auto 28px; }
+    .search-bar { max-width: 480px; margin: 0 auto; display: flex; gap: 10px; }
+    .search-bar input { flex: 1; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 18px; font-size: 15px; color: var(--text); outline: none; }
+    .search-bar input::placeholder { color: var(--muted); }
+    .search-bar input:focus { border-color: var(--primary); }
+    .search-bar button { background: var(--primary); color: white; border: none; border-radius: 12px; padding: 14px 20px; font-size: 15px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    main { max-width: 900px; margin: 0 auto; padding: 48px 24px 80px; }
+    .quick-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 48px; }
+    .quick-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 20px; text-align: center; text-decoration: none; transition: border-color 0.2s, transform 0.2s; }
+    .quick-card:hover { border-color: var(--primary); transform: translateY(-2px); }
+    .quick-card .icon { font-size: 28px; margin-bottom: 8px; }
+    .quick-card h3 { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .quick-card p { font-size: 13px; color: var(--muted); }
+    h2 { font-size: 22px; font-weight: 800; color: var(--text); margin: 40px 0 20px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+    .faq-section { margin-bottom: 12px; }
+    .faq-item { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 8px; overflow: hidden; }
+    .faq-question { width: 100%; background: none; border: none; padding: 18px 20px; text-align: left; font-size: 15px; font-weight: 600; color: var(--text); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    .faq-question:hover { background: var(--surface2); }
+    .faq-chevron { font-size: 12px; color: var(--muted); transition: transform 0.2s; flex-shrink: 0; }
+    .faq-answer { display: none; padding: 0 20px 18px; font-size: 14px; color: var(--muted); line-height: 1.7; }
+    .faq-answer.open { display: block; }
+    .faq-answer a { color: var(--accent); }
+    .faq-answer ul { margin: 8px 0 0 16px; }
+    .faq-answer li { margin-bottom: 4px; }
+    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 20px; }
+    .contact-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 24px; }
+    .contact-card .icon { font-size: 28px; margin-bottom: 10px; }
+    .contact-card h3 { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+    .contact-card p { font-size: 14px; color: var(--muted); margin-bottom: 14px; }
+    .contact-card a { display: inline-block; background: var(--primary); color: white; text-decoration: none; padding: 10px 18px; border-radius: 10px; font-size: 14px; font-weight: 600; }
+    .contact-card a:hover { opacity: 0.9; }
+    .status-banner { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--primary); border-radius: 10px; padding: 14px 18px; margin-bottom: 32px; display: flex; align-items: center; gap: 12px; }
+    .status-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--primary); flex-shrink: 0; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+    .status-text { font-size: 14px; color: var(--text); font-weight: 600; }
+    .status-sub { font-size: 13px; color: var(--muted); }
+    footer { text-align: center; padding: 32px 24px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--border); }
+    footer a { color: var(--accent); text-decoration: none; }
+    @media (max-width: 600px) { .hero h1 { font-size: 28px; } nav { display: none; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">F</div>
+    <div class="brand">Fin<span>Master</span></div>
+    <nav>
+      <a href="/">Privacy Policy</a>
+      <a href="/terms">Terms of Service</a>
+      <a href="/support" style="color: var(--primary);">Support</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h1>How can we help?</h1>
+    <p>Find answers to common questions or reach our support team directly.</p>
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search FAQs… e.g. cancel subscription" oninput="filterFAQ(this.value)" />
+      <button onclick="filterFAQ(document.getElementById('searchInput').value)">Search</button>
+    </div>
+  </div>
+
+  <main>
+    <!-- System Status -->
+    <div class="status-banner">
+      <div class="status-dot"></div>
+      <div>
+        <div class="status-text">All systems operational</div>
+        <div class="status-sub">App, AI Coach, and market data are running normally.</div>
+      </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="quick-links">
+      <a href="#subscriptions" class="quick-card">
+        <div class="icon">💳</div>
+        <h3>Subscriptions & Billing</h3>
+        <p>Manage your plan, cancel, or restore purchases</p>
+      </a>
+      <a href="#paper-trading" class="quick-card">
+        <div class="icon">📈</div>
+        <h3>Paper Trading</h3>
+        <p>How the simulator works and what's included</p>
+      </a>
+      <a href="#ai-coach" class="quick-card">
+        <div class="icon">🤖</div>
+        <h3>AI Coach</h3>
+        <p>Getting the most from your AI investing tutor</p>
+      </a>
+      <a href="#account" class="quick-card">
+        <div class="icon">👤</div>
+        <h3>Account & Data</h3>
+        <p>Progress, streaks, data deletion, and privacy</p>
+      </a>
+    </div>
+
+    <!-- FAQ: Subscriptions -->
+    <h2 id="subscriptions">💳 Subscriptions &amp; Billing</h2>
+    <div class="faq-section" id="faqContainer">
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggle(this)">
+          What's included in the free plan?
+          <span class="faq-chevron">▼</span>
+        </button>
+        <div class="faq-answer">
+          The free plan gives you access to 3 lessons per day, basic quiz mode, the Paper Trading Simulator with a $10,000 virtual portfolio, and limited AI Coach questions. You can track your streak, earn XP, and view the leaderboard at no cost. Pro and Elite unlock unlimited lessons, real-time AI signals, 2× XP, advanced analytics, and unlimited price alerts.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggle(this)">
+          How do I start the 7-day free trial?
+          <span class="faq-chevron">▼</span>
+        </button>
+        <div class="faq-answer">
+          The free trial offer appears automatically during onboarding. Tap <strong>"Start 7-Day Free Trial"</strong> and complete the App Store or Google Play payment flow — no charge is made until the trial ends. You can cancel at any time before the 7 days are up and you will not be billed.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggle(this)">
+          How do I cancel my subscription?
+          <span class="faq-chevron">▼</span>
+        </button>
+        <div class="faq-answer">
+          Subscriptions are managed by Apple or Google, not by FinMaster directly.
+          <ul>
+            <li><strong>iPhone/iPad:</strong> Settings → [Your Name] → Subscriptions → FinMaster → Cancel</li>
+            <li><strong>Android:</strong> Google Play Store → Profile → Payments &amp; subscriptions → Subscriptions → FinMaster → Cancel</li>
+          </ul>
+          After cancellation, you retain Pro/Elite access until the end of the current billing period.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggle(this)">
+          I switched phones — how do I restore my subscription?
+          <span class="faq-chevron">▼</span>
+        </button>
+        <div class="faq-answer">
+          Open FinMaster → Settings → scroll to the bottom → tap <strong>"Restore Purchases"</strong>. This will re-validate your subscription with Apple or Google and restore your Pro or Elite access. Make sure you are signed into the same App Store / Google Play account that made the original purchase.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggle(this)">
+          Can I get a refund?
+          <span class="faq-chevron">▼</span>
+        </button>
+        <div class="faq-answer">
+          Refunds are handled by Apple or Google, not by FinMaster. You can request a refund through:
+          <ul>
+            <li><strong>Apple:</strong> <a href="https://reportaproblem.apple.com" target="_blank">reportaproblem.apple.com</a></li>
+            <li><strong>Google:</strong> Google Play Store → Order History → Request Refund</li>
+          </ul>
+          Apple and Google typically approve refunds within 48 hours for recent purchases.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggle(this)">
+          What is the FINMASTER7 promo code?
+          <span class="faq-chevron">▼</span>
+        </button>
+        <div class="faq-answer">
+          <strong>FINMASTER7</strong> is a referral promo code that gives new users 7 days of Pro access for free. Enter it in the app during onboarding or in Settings → Promo Code. The code is single-use per account and cannot be combined with other offers.
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ: Paper Trading -->
+    <h2 id="paper-trading">📈 Paper Trading Simulator</h2>
+    <div class="faq-section">
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggle(this)">
+          Is the Paper Trading Simulator using real money?
+          <span class="faq-chevron">▼</span>
+        </button>
+        <div class="faq-answer">
+          No. The Paper Trading Simulator uses <strong>virtual money only</strong> — you start with a $10,000 virtual portfolio. No real money is ever involved. It is purely for educational purposes to help you practice trading strategies without financial risk.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggle(this)">
+          Are the stock prices real?
+          <span class="faq-chevron">▼</span>
+        </button>
+        <div class="faq-answer">
+          Prices are sourced from Alpha Vantage and may be delayed by up to 15 minutes. They are intended to be realistic for educational purposes, but should not be used for real trading decisions. Past performance in the simulator does not guarantee similar results in real markets.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggle(this)">
+          What order types are supported?
+          <span class="faq-chevron">▼</span>
+        </button>
+        <div class="faq-answer">
+          The simulator supports three order types:
+          <ul>
+            <li><strong>Market Order</strong> — executes immediately at the current price</li>
+            <li><strong>Limit Order</strong> — executes only when the price reaches your target</li>
+            <li><strong>Stop-Loss Order</strong> — automatically sells to limit your downside</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggle(this)">
+          Can I reset my paper trading portfolio?
+          <span class="faq-chevron">▼</span>
+        </button>
+        <div class="faq-answer">
+          Yes. Go to the Simulator tab → tap the settings icon (top right) → <strong>"Reset Portfolio"</strong>. This will clear all positions, trade history, and return your balance to $10,000. This action cannot be undone.
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ: AI Coach -->
+    <h2 id="ai-coach">🤖 AI Coach</h2>
+    <div class="faq-section">
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggle(this)">
+          Is the AI Coach giving me real financial advice?
+          <span class="faq-chevron">▼</span>
+        </button>
+        <div class="faq-answer">
+          No. The AI Coach is an <strong>educational tool only</strong>. It explains investing concepts, answers questions about lessons, and helps you understand financial topics. It does not provide personalised financial advice, investment recommendations, or tax advice. Always consult a qualified financial advisor before making real investment decisions.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggle(this)">
+          Why did the AI Coach give an incorrect answer?
+          <span class="faq-chevron">▼</span>
+        </button>
+        <div class="faq-answer">
+          AI models can occasionally produce inaccurate information, especially for rapidly changing market data. If you believe an answer is incorrect, please tap the <strong>thumbs down</strong> icon below the response and describe the issue. Your feedback helps us improve the AI Coach continuously.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggle(this)">
+          How many AI Coach questions can I ask?
+          <span class="faq-chevron">▼</span>
+        </button>
+        <div class="faq-answer">
+          Free plan users can ask up to <strong>5 questions per day</strong>. Pro and Elite subscribers have unlimited AI Coach access. Your daily question count resets at midnight in your local timezone.
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ: Account & Data -->
+    <h2 id="account">👤 Account &amp; Data</h2>
+    <div class="faq-section">
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggle(this)">
+          How do I delete my account and data?
+          <span class="faq-chevron">▼</span>
+        </button>
+        <div class="faq-answer">
+          To delete your account and all associated data: open FinMaster → Settings → scroll to the bottom → tap <strong>"Delete Account"</strong>. This will permanently delete your progress, XP, streak, and all personal data within 30 days. This action cannot be undone. If you have an active subscription, cancel it first through your App Store or Google Play settings.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggle(this)">
+          I lost my streak — can it be restored?
+          <span class="faq-chevron">▼</span>
+        </button>
+        <div class="faq-answer">
+          Streaks are calculated based on daily lesson completions in your local timezone. If you believe your streak was incorrectly reset due to a technical issue (e.g., app crash, timezone change), contact us at <a href="mailto:support@finmaster.app">support@finmaster.app</a> within 48 hours with your username and the date of the issue. We review streak restoration requests case-by-case.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggle(this)">
+          Is my data backed up if I reinstall the app?
+          <span class="faq-chevron">▼</span>
+        </button>
+        <div class="faq-answer">
+          Your progress is stored locally on your device. If you delete and reinstall the app, your progress will be reset. We recommend completing lessons consistently rather than relying on backup. Cross-device sync is on our roadmap for a future update.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggle(this)">
+          Does FinMaster connect to my brokerage account?
+          <span class="faq-chevron">▼</span>
+        </button>
+        <div class="faq-answer">
+          No. FinMaster does not connect to, access, or interact with any real brokerage, bank, or financial account. The app is purely educational. All trading in the app uses virtual money only.
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Section -->
+    <h2>📬 Contact Support</h2>
+    <p style="color: var(--muted); margin-bottom: 20px;">Can't find what you're looking for? Our support team typically responds within one business day.</p>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="icon">✉️</div>
+        <h3>Email Support</h3>
+        <p>For billing, account issues, or anything not covered in the FAQ above.</p>
+        <a href="mailto:support@finmaster.app">Email us</a>
+      </div>
+      <div class="contact-card">
+        <div class="icon">🐛</div>
+        <h3>Report a Bug</h3>
+        <p>Found something broken? Tell us what happened and we'll fix it fast.</p>
+        <a href="mailto:bugs@finmaster.app?subject=Bug Report — FinMaster">Report Bug</a>
+      </div>
+      <div class="contact-card">
+        <div class="icon">💡</div>
+        <h3>Feature Requests</h3>
+        <p>Have an idea that would make FinMaster better? We read every suggestion.</p>
+        <a href="mailto:feedback@finmaster.app?subject=Feature Request — FinMaster">Send Idea</a>
+      </div>
+    </div>
+
+    <!-- Response Time Notice -->
+    <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; margin-top: 32px; display: flex; gap: 16px; align-items: flex-start;">
+      <div style="font-size: 24px;">⏱️</div>
+      <div>
+        <div style="font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 4px;">Support Hours &amp; Response Times</div>
+        <div style="font-size: 14px; color: var(--muted);">Our support team operates Monday–Friday, 9am–6pm EST. We aim to respond to all emails within <strong style="color: var(--text);">1 business day</strong>. For urgent billing issues, include your order number or Apple/Google transaction ID to speed up resolution.</div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 FinMaster. All rights reserved. &nbsp;·&nbsp; <a href="/">Privacy Policy</a> &nbsp;·&nbsp; <a href="/terms">Terms of Service</a> &nbsp;·&nbsp; <a href="/support">Support</a></p>
+  </footer>
+
+  <script>
+    function toggle(btn) {
+      const answer = btn.nextElementSibling;
+      const chevron = btn.querySelector('.faq-chevron');
+      const isOpen = answer.classList.contains('open');
+      // Close all
+      document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+      document.querySelectorAll('.faq-chevron').forEach(c => { c.textContent = '▼'; c.style.transform = ''; });
+      // Open this one if it was closed
+      if (!isOpen) {
+        answer.classList.add('open');
+        chevron.textContent = '▲';
+      }
+    }
+
+    function filterFAQ(query) {
+      const q = query.toLowerCase().trim();
+      document.querySelectorAll('.faq-item').forEach(item => {
+        const text = item.textContent.toLowerCase();
+        item.style.display = (!q || text.includes(q)) ? '' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>
